@@ -6,4 +6,10 @@ A Numpy Implementation of various Machine Learning algorithms.
 
 ### Supervised Learning
 
-- Linear Regression [&check;]
+- [Linear Regression] &check;
+
+
+
+<!--Links-->
+
+[Linear Regression]: https://github.com/3outeille/ML-Numpy/tree/master/src/supervised/linear_regression
