@@ -6,4 +6,4 @@ A Numpy Implementation of various Machine Learning algorithms.
 
 ### Supervised Learning
 
-- Linear Regression [x]
+- Linear Regression [&check;]
