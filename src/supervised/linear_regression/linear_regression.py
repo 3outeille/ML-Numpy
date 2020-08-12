@@ -23,11 +23,11 @@ class Model():
         if self.normal_equation:
             X_t = np.transpose(X)
             inv = np.linalg.inv
-            self.W = np.dot(inv(X_t.dot(X)), X_t.dot(y))
+            self.W = inv(X_t @ X) @ (X_t @ y)
         else:
             m = X.shape[1]
             for epoch in range(self.epochs):
-                y_pred = X.dot(self.W)
+                y_pred = X @ self.W
                 cost = (1/(2*m)) * sum(y_pred - y)**2
                 self.training_errors.append(cost) 
                 self.grad_W = (1/m) * (y_pred - y).dot(X)
@@ -35,4 +35,4 @@ class Model():
 
     def predict(self, X):
         X = np.insert(X, 0, 1, axis=1)
-        return X.dot(self.W)
+        return X @ self.W
