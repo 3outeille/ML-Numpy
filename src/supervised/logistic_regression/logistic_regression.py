@@ -14,7 +14,7 @@ class Model():
     
     def __initialize_weights(self, nb_features):
         """
-                Initialize weights from uniform distribution.
+            Initialize weights from uniform distribution.
         """  
         bound = 1 / np.sqrt(nb_features)
         self.W = {'val': np.random.uniform(low=-bound, high=bound, size=(nb_features,1)),
@@ -40,32 +40,3 @@ class Model():
     def predict(self, X):
         X = np.insert(X, 0, 1, axis=1)
         return self.sigmoid(X @ self.W['val'])
-
-import numpy as np
-import matplotlib.pyplot as plt
-np.random.seed(0)
-
-# Dataset visualization
-X = np.array([
-            [1, 4],
-            [2, 4],
-            [3, 4],
-            [4, 4],
-            [5, 4],
-            [6, 10],
-            [7, 10],
-            [8, 10],
-            [9, 10],
-            [10, 10]
-        ])
-y = np.array([1,1,1,1,1,0,0,0,0,0])
-y = y[:, np.newaxis]
-
-plt.figure(figsize=(7,5))
-plt.scatter(X[:,0], X[:,1], c=y[:, 0], s=20, cmap='jet')
-# plt.show()
-
-# Model initialization
-model = Model(epochs=1000, lr=0.01)
-model.fit(X, y)
-y_pred = model.predict(X)
