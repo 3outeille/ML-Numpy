@@ -9,7 +9,7 @@ class Model():
         
     def __initialize_weights(self, nb_features):
         """
-             Initialize weights from uniform distribution.
+            Initialize weights from uniform distribution.
         """
         bound = 1 / np.sqrt(nb_features)
         self.W = np.random.uniform(low=-bound, high=bound, size=(nb_features,))
